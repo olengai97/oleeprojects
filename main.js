@@ -1,4 +1,4 @@
-var div = document.querySelector('div');
+var div = document.querySelector('pets');
 
 var req = new XMLHttpRequest();
 req.open('GET', 'https://olengai97.github.io/oleeprojects/pets.json');
