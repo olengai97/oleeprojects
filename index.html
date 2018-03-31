@@ -9,12 +9,24 @@
 		fieldset { width:100%; margin:auto; padding:20px 10px; border-radius: 5px; }
 		ul li{ font-size: 20px; font-family: helvetica; padding: 10px; color:red; }
 		ul li.done {  color:green; }
+		input { width:100%; margin: auto; padding: 10px; display: inline-block; border:none; border-bottom: 2px solid black; font-size: 20px; color:brown; }
+		input[type=submit] { background-color: black; color:#fff;  }
+		input[type=submit]:hover { opacity: 0.8; }
 	</style>
 </head>
 <body>
 	<fieldset>
 		<legend>My To-Do List</legend>
 		<ul id="to-do"></ul>
+	</fieldset>
+	<br><br><br><br>
+
+	<fieldset>
+		<legend style="background-color: brown;">Add New item</legend>
+		<input type="text" name="task" placeholder="task"><br><br>
+		<input type="text" name="who" placeholder="who should do it?"><br><br>
+		<input type="date" name="dueDate" placeholder="Due Date"><br><br>
+		<input type="submit" name="submit" value="Submit"><br><br>
 	</fieldset>
 
 
