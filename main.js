@@ -79,6 +79,7 @@ function getFormData() {
 	var li = document.createElement('li');
 	li.innerHTML = who + " have completed a task to " + task + " by " + date;
 	ul.appendChild(li);
+	document.forms[0].reset();
 }
 
 function validateText(value, msg) {
