@@ -1,9 +1,20 @@
+var ul = document.getElementById('to-do');
+var submit = document.getElementById('submit');
 
 var todoArray = new Array();
 window.onload = init;
 
+function NewTodo(task, who, date) {
+	this.task = task;
+	this.who = who;
+	this.date = date;
+	this.done = false;
+}
+
 function init() {
+	submit.onclick = getFormData;
 	getData();
+	
 }
 
 function getData() {
@@ -32,7 +43,7 @@ function todoFetch(dataFetched) {
 }
 
 function addTodosToPage() {
-	var ul = document.getElementById('to-do');
+	
 	for(var i = 0; i<todoArray.length; i++) {
 		var todoItem = todoArray[i];
 		if(todoItem.done == false) {
@@ -49,5 +60,32 @@ function addTodosToPage() {
 
 	}
 	
+}
+
+function getFormData() {
+	var task = document.getElementById('task').value;
+	if(validateText(task, "Please fill what task should be taken")) return;
+
+	var who = document.getElementById('who').value;
+	if(validateText(who, "Please fill who should take the task")) return;
+
+	var date = document.getElementById('dueDate').value;
+	if(validateText(date, "Please fill specify what time should the task be taken")) return;
+
+	console.log(who+" have to "+task+" by "+date);
+	var newItem = new NewTodo(task, who, date);
+	todoArray.push(newItem);
+
+	var li = document.createElement('li');
+	li.innerHTML = who + " have completed a task to " + task + " by " + date;
+	ul.appendChild(li);
+}
+
+function validateText(value, msg) {
+	if(value == "" || value == null) {
+		alert(msg);
+		return true;
+	}
+	return false;
 }
 
